@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HelloController {
+public class IndexController {
 
-    @GetMapping("/hello")
+    @GetMapping("/")
     public String hello(@RequestParam(value = "name", required = false) String name, Model model){
         model.addAttribute("name", name);
         return "index";
