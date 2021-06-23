@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Getting Started: Serving Web Content</title>
+  <title>码匠社区</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <!--在bootstrap.min.js之前引入jq-->
@@ -31,9 +31,9 @@
         <button type="submit" class="btn btn-default">搜索</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="https://github.com/login/oauth/authorize?client_id=Iv1.32f713f8177e2e57&state="+uuid()>登录</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我<span class="caret"></span></a>
+        <li th:if="${session.user == null}"><a href="https://github.com/login/oauth/authorize?client_id=d87b552b03c110799453&state=1">登录</a></li>
+        <li class="dropdown" th:if="${session.user != null}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:text="${session.user.getName()}">我<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">消息中心</a></li>
             <li><a href="#">个人资料</a></li>
